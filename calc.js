@@ -6,7 +6,8 @@ const rl = readline.createInterface({
 });
 
 rl.question('Enter a math expression (e.g. "What is 5 plus 7?"): ', (input) => {
-  const expression = input.match(/(\d+) (\w+) (\d+)/);
+  const expression = input.match(/(\d+) (.+) (\d+)/);
+
   if (expression) {
     const [_, num1, operation, num2] = expression;
     let result;
@@ -20,6 +21,7 @@ rl.question('Enter a math expression (e.g. "What is 5 plus 7?"): ', (input) => {
       case 'multiplied by':
         result = Number(num1) * Number(num2);
         break;
+        
       case 'divided by':
         result = Number(num1) / Number(num2);
         break;
